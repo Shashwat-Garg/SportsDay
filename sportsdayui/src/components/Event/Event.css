@@ -1,0 +1,69 @@
+.event {
+    border: 2px solid rgb(141, 152, 171);
+    border-radius: 20px;
+    width: 90%;
+    height: 90%;
+    margin: 5%;
+    display: grid;
+    grid-template-columns: 25% 30% 45%;
+    grid-template-rows: 25% 20% 20% 35%;
+    align-items: center;
+    justify-items: center;
+    background-color: rgb(222, 232, 251);
+}
+
+.event.disabled {
+    background-color: lightgray;
+}
+
+.event-category-letter {
+    grid-column: 1 / 2;
+    grid-row: 1 / end;
+    height: fit-content;
+    font-size: 48px;
+    font-weight: bolder;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid black;
+}
+
+.event-name {
+    grid-column: 2 / end;
+    grid-row: 1 / 2;
+    font-weight: bolder;
+    font-size: large;
+}
+
+.event-category {
+    grid-column: 2 / end;
+    grid-row: 2 / 3;
+}
+
+.event-time {
+    grid-column: 2 / end;
+    grid-row: 3 / 4;
+}
+
+.event-register-button {
+    grid-column: 3 / end;
+    grid-row: 4 / end;
+    margin: 5%;
+    background-color: rgb(217, 231, 213) !important;
+    color: black !important;
+    border: 2px solid rgb(151, 170, 143) !important;
+    border-radius: 8px !important;
+}
+
+.event-register-button.disabled {
+    background-color: white !important;
+    border: 0px !important;
+}
+
+.event-register-button.selected {
+    background-color: rgb(244, 207, 205) !important;
+    font-weight: bold !important;
+    border: 2px solid rgb(148, 104, 104) !important;
+}
