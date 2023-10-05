@@ -37,6 +37,7 @@ namespace sportsdayapi.Controllers
         [Route("create")]
         public async Task<ActionResult<CreateUserResponse>> CreateUser(CreateUserRequest createUserData)
         {
+            this._logger.LogInformation("User id: {0}", createUserData?.user_id);
             try
             {
                 if (createUserData == null || !createUserData.IsValid())
@@ -90,7 +91,7 @@ namespace sportsdayapi.Controllers
                     return this.StatusCode(400, new LoginUserResponse { error_message = "USER_ID_ABSENT" });
                 }
 
-                return new LoginUserResponse { user = user };
+                return this.Ok(new LoginUserResponse { user = user });
             }
             catch (Exception ex)
             {

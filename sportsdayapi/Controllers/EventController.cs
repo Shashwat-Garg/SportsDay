@@ -114,7 +114,7 @@ namespace sportsdayapi.Controllers
                 bool success = await this._userEventService.UnRegisterUserForEventAsync(userEvent);
                 if (!success)
                 {
-                    return this.StatusCode(400, "INVALID_DATA");
+                    return this.StatusCode(400, new RegisterEventResponse { error_message = "INVALID_DATA" });
                 }
 
                 return this.Ok(new RegisterEventResponse { success = success });

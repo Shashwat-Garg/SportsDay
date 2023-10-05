@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sportsdayapi", "sportsdayap
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "sportsdayui", "sportsdayui\sportsdayui.esproj", "{665CF069-139F-4CA4-BAFE-E053FE23ED29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sportsdayapi.UnitTests", "sportsdayapi.UnitTests\sportsdayapi.UnitTests.csproj", "{259B23C1-31C5-40B2-A916-E77E02B6AD7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{665CF069-139F-4CA4-BAFE-E053FE23ED29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{665CF069-139F-4CA4-BAFE-E053FE23ED29}.Release|Any CPU.Build.0 = Release|Any CPU
 		{665CF069-139F-4CA4-BAFE-E053FE23ED29}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{259B23C1-31C5-40B2-A916-E77E02B6AD7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{259B23C1-31C5-40B2-A916-E77E02B6AD7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{259B23C1-31C5-40B2-A916-E77E02B6AD7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{259B23C1-31C5-40B2-A916-E77E02B6AD7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
