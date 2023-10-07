@@ -1,4 +1,6 @@
-﻿using Moq;
+﻿using Microsoft.EntityFrameworkCore;
+using Moq;
+using Moq.EntityFrameworkCore;
 using sportsdayapi.Data;
 using sportsdayapi.Models.DbModels;
 
@@ -6,9 +8,17 @@ namespace sportsdayapi.UnitTests.MockInitializers
 {
     internal static class MockDataContext
     {
-        public static Mock<DataContext> GetMockDataContext()
+        public static DataContext GetFakeDataContext()
         {
-            return new Mock<DataContext>();
+            var options = new DbContextOptionsBuilder<DataContext>()
+                    .UseInMemoryDatabase(databaseName: "FakeDbName")
+                    .Options;
+            var mockDataContext = new Mock<DataContext>(options);
+
+            mockDataContext.Setup(context => context.Users).ReturnsDbSet(GetFakeUsers());
+            mockDataContext.Setup(context => context.Events).ReturnsDbSet(GetFakeEvents());
+            mockDataContext.Setup(context => context.UserEvents).ReturnsDbSet(GetFakeUserEvents());
+            return mockDataContext.Object;
         }
 
         public static List<User> GetFakeUsers()
@@ -23,15 +33,16 @@ namespace sportsdayapi.UnitTests.MockInitializers
         {
             return new List<Event>
             {
-                GetFakeEvent()
+                GetFakeEvent(1),
+                GetFakeEvent(2),
             };
         }
 
-        public static List<UserEvent> GetFakeUserEvents()
+        public static List<UserEvent> GetFakeUserEvents(bool withNavigationProperties = true)
         {
             return new List<UserEvent>
             {
-                GetFakeUserEvent()
+                GetFakeUserEvent(withNavigationProperties)
             };
         }
 
@@ -40,11 +51,11 @@ namespace sportsdayapi.UnitTests.MockInitializers
             return new User { user_id = "test", user_name = "Test user" };
         }
 
-        public static Event GetFakeEvent()
+        public static Event GetFakeEvent(int event_id = 1)
         {
             return new Event
             {
-                id = 1,
+                id = event_id,
                 event_category = "Test",
                 event_name = "Test event",
                 start_time = DateTime.Now.AddHours(-2),
@@ -52,7 +63,7 @@ namespace sportsdayapi.UnitTests.MockInitializers
             };
         }
 
-        public static UserEvent GetFakeUserEvent()
+        public static UserEvent GetFakeUserEvent(bool withNavigationProperties = true)
         {
             User fakeUser = GetFakeUser();
             Event fakeEvent = GetFakeEvent();
@@ -60,8 +71,8 @@ namespace sportsdayapi.UnitTests.MockInitializers
             {
                 user_id = fakeUser.user_id,
                 event_id = fakeEvent.id,
-                user = fakeUser,
-                @event = fakeEvent
+                user = withNavigationProperties ? fakeUser : null,
+                @event = withNavigationProperties ? fakeEvent : null
             };
         }
     }
