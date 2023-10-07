@@ -25,7 +25,6 @@ function AuthStateReducer(_: boolean, action: AuthStateAction): boolean {
         switch (action.type) {
             case "LOGGED_IN":
             case "SIGNED_IN":
-                console.log("authorized");
                 return true;
             case "LOGGED_OUT":
                 return false;

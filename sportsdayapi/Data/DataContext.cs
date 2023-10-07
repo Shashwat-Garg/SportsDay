@@ -20,17 +20,17 @@
         /// <summary>
         /// Gets or sets the db set containing information about users.
         /// </summary>
-        public DbSet<User> Users { get; set; } = null;
+        public virtual DbSet<User> Users { get; set; } = null;
 
         /// <summary>
         /// Gets or sets the db set containing information about events
         /// </summary>
-        public DbSet<Event> Events { get; set; } = null;
+        public virtual DbSet<Event> Events { get; set; } = null;
 
         /// <summary>
         /// Gets or sets the db set containing information about user registered events
         /// </summary>
-        public DbSet<UserEvent> UserEvents { get; set; } = null;
+        public virtual DbSet<UserEvent> UserEvents { get; set; } = null;
 
         /// <summary>
         /// Used to add keys and other model related properties when the db model is being created.

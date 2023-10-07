@@ -1,5 +1,6 @@
 namespace sportsdayapi
 {
+    using System.Diagnostics.CodeAnalysis;
     using Microsoft.EntityFrameworkCore;
     using sportsdayapi.Data;
     using sportsdayapi.Services;
@@ -7,6 +8,7 @@ namespace sportsdayapi
     /// <summary>
     /// The program class for the web server
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public class Program
     {
         /// <summary>

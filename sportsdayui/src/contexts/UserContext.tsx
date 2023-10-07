@@ -10,7 +10,6 @@ const UserDispatchContext: React.Context<React.Dispatch<UserAction> | null> = cr
 
 function UserProvider({ children }: any) {
     const [user, dispatchUser] = useReducer(userReducer, null);
-    console.log("here");
     return (
         <UserContext.Provider value={user}>
             <UserDispatchContext.Provider value={dispatchUser}>
